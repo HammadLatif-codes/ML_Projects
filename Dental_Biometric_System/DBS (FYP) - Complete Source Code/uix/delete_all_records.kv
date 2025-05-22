@@ -1,0 +1,118 @@
+#:import Factory kivy.factory.Factory
+
+<Warning_Popup@Popup>
+    
+
+    auto_dismiss: False
+    title: "Warning!"
+    bold: True
+    size_hint: 0.6, 0.4
+    pos_hint: {'x': 0.2, 'top': 0.6}
+
+
+            
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text:"It will permanently delete the data!"
+            font_size: 20
+            bold: True
+            text_size: self.size
+            halign:"left"
+            valign:"middle"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 10
+            #spacing:50
+        Button:
+            text: "I know, Delete now"                
+            background_color: (220/255, 220/255, 220/255,1)
+            size_hint: (None, None)
+            height: 40
+            width: 200
+            pos_hint: {'center_x': 0.5}
+            on_press: root.delete()     
+            
+        Button:
+            text: "Cancel"
+            background_color: (220/255, 220/255, 220/255,1)
+            size_hint: (None, None)
+            height: 40
+            width: 200
+            pos_hint: {'center_x': 0.5}
+            on_press: root.dismiss()
+
+
+
+            
+
+
+
+#--------------------------------------------------------------------------
+<DeleteAllRecords>
+
+     
+    GridLayout:
+        cols:1
+        #orientation: 'vertical'
+        #size:root.width, root.height    
+        size_hint: (None, None)
+        height: 600
+        width:800        
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 40
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 50
+            spacing:50
+
+        Label:
+            text:"Starting fresh paves the way for new beginnings. Embrace the blank canvas!"
+            font_size: 20
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 50
+            spacing:50
+         
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 200
+            width: 800
+
+            Button:
+                text: "Delete all Records"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.btn_event_handler()     
+        
+            Button:
+                text: "Go back"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.back_to_admin_pannel()  
+        
+        #for validation
+        Label:
+            id: show_message
+            text: ''

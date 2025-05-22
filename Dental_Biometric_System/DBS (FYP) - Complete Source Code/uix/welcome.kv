@@ -1,0 +1,68 @@
+<WelcomeClass>
+    GridLayout:
+        cols:1  
+        size_hint: (None, None)
+        height: 600
+        width:800 
+        spacing:40
+
+        Label:
+            text:"Welcome to Dental Biometric System"
+            font_size: 35
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 70
+            width:800
+            padding: 20
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (None, None)
+            height: 340
+            width:800
+
+            Carousel:
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/1.png'
+
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/10.png'
+
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/11.png'  
+
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/110.png'       
+
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (None, None)
+            height: 60
+            width:800
+            Button:
+                text: "Admin Panel"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.go_to_admin_panel()
+
+            Label:
+                text:''
+                size_hint: (None, None)
+                height: 5
+                width:800
+
+            Button:
+                text: "Sign Out"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}    
+                on_press: root.sign_out()     

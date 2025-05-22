@@ -1,0 +1,161 @@
+<AdminPanel>
+
+    GridLayout:
+        cols:1
+        #orientation: 'vertical'
+        #size:root.width, root.height    
+        size_hint: (None, None)
+        height: 600
+        width:800
+        spacing: 5
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 25
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 15
+
+        Label:
+            text:"Welcome to Admin Dashboard!"
+            font_size: 18
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 50
+            width:800
+            padding: 15
+
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (None, None)
+            height: 100
+            width:800
+#
+        #    Carousel:
+        #        Image:
+        #            source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/1.png'
+#
+        #        Image:
+        #            source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/10.png'
+                
+
+        
+        GridLayout:
+            #orientation: 'horizontal'  
+            cols: 5
+            size_hint: (None, None)
+            height: 180
+            width:800
+            spacing: 30
+
+            # row 1
+            Label:
+                text:''
+    
+
+            Button:
+                text: "Add Record"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                on_press: root.add_details()
+
+
+
+            Button:
+                text: "Show Records"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                size_hint_x: None
+                pos_hint: {'center_x': 0.5}
+                padding: 20
+                on_press: root.go_to_show_records_screen()
+            
+            Button:
+                text: "Search a Record"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                spacing: 20
+                pos_hint: {'center_x': 0.5}
+                on_press: root.search_screen()  
+
+            Label:
+                text:''  
+
+            # row 2
+            Label:
+                text:''       
+               
+            Button:
+                text: "Delete one Record"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                on_press: root.delete_record()
+            
+            Button:
+                text: "Delete All Records"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                on_press: root.go_to_delete_all_records_screen()
+
+            Button:
+                text: "Update Record"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                on_press: root.go_to_update_record_screen()    
+            
+            Label:
+                text:''  
+
+            # row 3
+            Label:
+                text:''  
+            Button:
+                text: "Do Biometric"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.go_to_biometric_screen()
+
+            Button:
+                text: "Add Forensic Officer"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}    
+                on_press: root.add_forensic_officer()     
+            
+            Button:
+                text: "Go Back"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}    
+                on_press: root.go_to_welcome_screen()  
+
+            Label:
+                text:''     

@@ -1,0 +1,390 @@
+<Results_Popup@Popup>    
+
+    auto_dismiss: False
+    title: "Found Records"
+
+
+    GridLayout:
+        id: parent_grid
+        cols:1  
+        size_hint: (None, None)
+        height: 600
+        width:800
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 20
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 70
+            width:800
+            padding: 20
+            #spacing:50
+
+    
+ 
+        
+        GridLayout:
+            id: header_grid
+            cols:6
+            size_hint: (None, None)
+            height: 40
+            width:800
+
+        ScrollView:
+            id: scroller
+            do_scroll_y: True
+            do_scroll_x: False
+            height: 400
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 50
+            width: 800
+            Button:
+                text: "Go Back"                
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.dismiss()      
+
+
+
+
+
+
+
+#----------------------------------------------------------------------------------
+
+<Result_Popup@Popup>
+    
+
+    auto_dismiss: False
+    title: "Found Record"
+
+     
+    GridLayout:
+        cols:1  
+        size_hint: (None, None)
+        height: 600
+        width:800
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 20
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"middle"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 10
+            #spacing:50
+        
+        GridLayout:
+            cols:2
+            size_hint: None,None
+            height:255
+            width:800
+
+            Label:
+                text:'Name:'
+                bold: True
+                text_size: self.size
+                halign:"right"
+                valign:"middle"
+                size_hint:(None, None)
+                height: 30
+                width:400
+                padding: 20
+                
+
+            Label:
+                id: name
+                text:''
+                text_size: self.size
+                halign:"left"
+                valign:"middle"
+                size_hint:(None, None)
+                height: 30
+                width:400
+                padding: 20
+                
+
+            Label:
+                text:'Age:'
+                bold: True
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            Label:
+                id: age
+                text:''
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+               
+            
+            Label:
+                text:'Gender:'
+                bold: True
+                font_size: 20
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+
+            Label:
+                id: gender
+                text:''
+                font_size: 17
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+
+            
+            
+            Label:
+                text: 'State:'
+                bold: True
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            Label:
+                id: state
+                text: ''
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            Label:
+                text: 'Picture'
+                bold: True
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 120
+                width: 400
+                padding: 20
+            
+            
+            Image:
+                id: img_address
+                allow_stretch: False
+                keep_ratio: True
+                size_hint: None, None  
+                size: 200, 120 
+
+            
+            
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 60
+            width: 800
+
+               
+            
+            Button:
+                text: "Go Back"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.dismiss()
+
+
+
+
+
+
+<Radiograph_Popup@Popup>
+    auto_dismiss: False
+    size_hint: 0.6, 0.4
+    pos_hint: {'x': 0.3, 'top': 0.6}
+    title: "Select a file"
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        FileChooserListView:
+            id: FileChooser
+            on_selection: root.select_radiograph_file(FileChooser.selection)
+
+        Button:
+            text: 'Select'
+            size_hint: 1,0.2
+
+            on_release: root.dismiss()
+
+
+<Biometric>
+
+    GridLayout:
+        cols:1  
+        #orientation: 'vertical'
+        size_hint: (None, None)
+        height: 600
+        width:800
+        spacing: 8
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 25
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 40
+            width:800
+            padding: 10
+
+
+        Label:
+            text:"Identify the Person"
+            font_size: 17
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 35
+            width:800
+            padding: 10
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (None, None)
+            height: 310
+            width:800
+
+            Carousel:
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/biometric1_resized.jpg'
+
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/biometric2_resized.jpg'
+
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/biometric3_resized.jpg'   
+
+                Image:
+                    source: '/home/hammad/FYP/Kivy/Testing/Carousel_images/biometric4_resized.jpg'      
+
+        GridLayout:
+            cols:2
+            size_hint: None,None
+            height:40
+            width:800
+
+            Label:
+                id: upload_radiograph
+                text: 'Upload Radiograph'
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            
+            Button: 
+                id: radiograph_button
+                text: 'Select Radiograph'
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 30
+                width: 200
+                on_release: root.show_radiograph_popup()
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 150
+            width: 800
+
+            Button:
+                text: "Identify"                
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 30
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.run_similarity_search()  
+
+            Label:
+                id: show_message
+                text:     
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 20
+                width: 420
+
+            Button:
+                id: details_btn
+                text:'See Details Here'  
+                opacity: 0
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 30
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.show_result()  
+
+            Button:
+                id: results_btn
+                text:'See Details Here'  
+                opacity: 0
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 30
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.show_results() 
+
+            Button:
+
+                text:'Go back'  
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 30
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.go_to_admin_panel()     

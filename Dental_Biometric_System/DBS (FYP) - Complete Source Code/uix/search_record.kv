@@ -1,0 +1,256 @@
+#:import Factory kivy.factory.Factory
+
+<Record_Popup@Popup>
+    
+
+    auto_dismiss: False
+    title: "Found Record"
+
+     
+    GridLayout:
+        cols:1  
+        size_hint: (None, None)
+        height: 600
+        width:800
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 20
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"middle"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 10
+            #spacing:50
+        
+        GridLayout:
+            cols:2
+            size_hint: None,None
+            height:255
+            width:800
+
+            Label:
+                text:'Name:'
+                bold: True
+                text_size: self.size
+                halign:"right"
+                valign:"middle"
+                size_hint:(None, None)
+                height: 30
+                width:400
+                padding: 20
+                
+
+            Label:
+                id: name
+                text:''
+                text_size: self.size
+                halign:"left"
+                valign:"middle"
+                size_hint:(None, None)
+                height: 30
+                width:400
+                padding: 20
+                
+
+            Label:
+                text:'Age:'
+                bold: True
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            Label:
+                id: age
+                text:''
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+               
+            
+            Label:
+                text:'Gender:'
+                bold: True
+                font_size: 20
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+
+            Label:
+                id: gender
+                text:''
+                font_size: 17
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+
+            
+            
+            Label:
+                text: 'State:'
+                bold: True
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            Label:
+                id: state
+                text: ''
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            
+            Label:
+                text: 'Picture'
+                bold: True
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 120
+                width: 400
+                padding: 20
+            
+            
+            Image:
+                id: img_address
+                allow_stretch: False
+                keep_ratio: True
+                size_hint: None, None  
+                size: 200, 120 
+
+            
+            
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 170
+            width: 800
+
+               
+            
+            Button:
+                text: "Go Back"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.dismiss()
+
+
+
+            
+
+
+
+#--------------------------------------------------------------------------
+<SearchRecord>
+    #username:name
+    #password:password
+     
+    GridLayout:
+        cols:1
+        #orientation: 'vertical'
+        #size:root.width, root.height    
+        size_hint: (None, None)
+        height: 600
+        width:800        
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 40
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 200
+            width:800
+            padding: 50
+            spacing:50
+
+
+        GridLayout:
+            cols:2
+
+            size_hint: None,None
+            height:150
+            width:800
+
+            Label:
+                text:'Name'
+                text_size: self.size
+                halign:"right"
+                valign:"middle"
+                size_hint:(None, None)
+                height: 30
+                width:400
+                padding: 20
+
+            TextInput:
+                id:name
+                multiline:False
+                size_hint:(None, None)
+                height: 30
+                width: 200
+
+            
+            
+        
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 40
+            width: 800
+
+            Button:
+                text: "Search record"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.btn_event_handler()     
+        
+            Button:
+                text: "Go back"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.back_to_admin_Panel()  
+        
+        #for validation
+        Label:
+            id: show_message
+            text: ''

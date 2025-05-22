@@ -1,0 +1,116 @@
+<signup>
+    #username:name
+    #password:password
+     
+    GridLayout:
+        cols:1
+        #orientation: 'vertical'
+        #size:root.width, root.height    
+        size_hint: (None, None)
+        height: 600
+        width:800
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 40
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 50
+            spacing:50
+        
+        Label:
+            text:"Register Forensic Officer"
+            font_size: 30
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 100
+            width:800
+            padding: 10
+            spacing:50
+
+        GridLayout:
+            cols:2
+
+            size_hint: None,None
+            height:150
+            width:800
+
+            Label:
+                text:'Username'
+                text_size: self.size
+                halign:"right"
+                valign:"middle"
+                size_hint:(None, None)
+                height: 30
+                width:400
+                padding: 20
+
+            TextInput:
+                id:name
+                multiline:False
+                size_hint:(None, None)
+                height: 30
+                width: 200
+
+            Label:
+                text:'Password'
+                text_size: self.size
+                halign: "right"
+                valign: "middle"
+                size_hint: (None, None)
+                height: 30
+                width: 400
+                padding: 20
+            TextInput:
+                id:input_password
+                password: True
+                multiline: False
+                size_hint: (None, None)
+                height: 30
+                width: 200
+        
+
+        
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 40
+            width: 800
+
+            Button:
+                text: "Register"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.btn_event_handler()   
+
+            Button:
+                text: "Go Back"
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.back_to_admin_panel()      
+        
+
+        
+            
+        
+        #for validation
+        Label:
+            id: show_message
+            text: ''

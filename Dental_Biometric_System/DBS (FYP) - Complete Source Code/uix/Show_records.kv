@@ -1,0 +1,105 @@
+<ShowRecords>
+
+    GridLayout:
+        id: parent_grid
+        cols:1  
+        size_hint: (None, None)
+        height: 600
+        width:800
+
+        Label:
+            text:"Dental Biometric System"
+            font_size: 20
+            bold: True
+            text_size: self.size
+            halign:"center"
+            valign:"top"
+            size_hint: (None, None)
+            height: 70
+            width:800
+            padding: 20
+            #spacing:50
+
+    
+        #GridLayout:
+        #    cols:2
+        #    size_hint: (None, None)
+        #    height: 50
+        #    width:800
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (None, None)
+            height: 50
+            width: 800
+            spacing: 30
+            padding:20
+            Button:
+                id: show_record_btn
+                text: "Show All Records"                
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.call_show_records_method()  
+
+            Spinner:
+                id: state_picker
+                text: ' State'
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                values: ["Islamabad", "Punjab","Sindh", "Balochistan","KPK","Gilgit"]    
+                on_text:root.state_spinner_click(state_picker.text)    
+
+            Spinner:
+                id: gender_picker
+                text: 'Gender'
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                values: ["Male", "Female"]    
+                on_text:root.gender_spinner_click(gender_picker.text)   
+
+        #BoxLayout:
+        #    orientation: 'vertical'
+        #    size_hint: (None, None)
+        #    height: 50
+        #    width: 800
+#
+        #    Button:
+        #        id: show_record_btn
+        #        text: "Show Records"                
+        #        background_color: (220/255, 220/255, 220/255,1)
+        #        size_hint: (None, None)
+        #        height: 40
+        #        width: 200
+        #        pos_hint: {'center_x': 0.5}
+        #        on_press: root.btn()  
+        
+        GridLayout:
+            id: header_grid
+            cols:6
+            size_hint: (None, None)
+            height: 40
+            width:800
+
+        ScrollView:
+            id: scroller
+            do_scroll_y: True
+            do_scroll_x: False
+            height: 400
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (None, None)
+            height: 50
+            width: 800
+            Button:
+                text: "Go Back"                
+                background_color: (220/255, 220/255, 220/255,1)
+                size_hint: (None, None)
+                height: 40
+                width: 200
+                pos_hint: {'center_x': 0.5}
+                on_press: root.back_to_admin_pannel()      
+

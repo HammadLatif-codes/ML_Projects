@@ -1,0 +1,529 @@
+#popup_for_picute
+<Update_PicturePopup@Popup>
+    auto_dismiss: False
+    size_hint: 0.6, 0.4
+    pos_hint: {'x': 0.3, 'top': 0.6}
+    title: "Select a file"
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        FileChooserListView:
+            id: FileChooser
+            on_selection: root.select_picture_file(FileChooser.selection)
+
+        Button:
+            text: 'Select'
+            size_hint: 1,0.2
+
+            on_release: root.dismiss()
+
+
+#popup_for_radiograph
+<Update_RadiographPopup@Popup>
+    auto_dismiss: False
+    size_hint: 0.6, 0.4
+    pos_hint: {'x': 0.3, 'top': 0.6}
+    title: "Select a file"
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        FileChooserListView:
+            id: FileChooser
+            on_selection: root.select_radiograph_file(FileChooser.selection)
+
+        Button:
+            text: 'Select'
+            size_hint: 1,0.2
+
+            on_release: root.dismiss()
+
+
+
+
+
+<Tabs_class>:
+    do_default_tab: False
+    TabbedPanelItem:
+        text: 'Search Record'
+        GridLayout:
+            cols:1 
+            size_hint: (None, None)
+            height: 600
+            width:800
+
+            Label:
+                text:"Dental Biometric System"
+                font_size: 40
+                bold: True
+                text_size: self.size
+                halign:"center"
+                valign:"top"
+                size_hint: (None, None)
+                height: 100
+                width:800
+                padding: 15
+
+
+
+            GridLayout:
+                cols:2
+
+                size_hint: None,None
+                height:100
+                width:800
+
+                Label:
+                    text:'Name'
+                    text_size: self.size
+                    halign:"right"
+                    valign:"middle"
+                    size_hint:(None, None)
+                    height: 30
+                    width:400
+                    padding: 20
+
+                TextInput:
+                    id:search_name
+                    multiline:False
+                    size_hint:(None, None)
+                    height: 30
+                    width: 200
+                    on_text: root.clear_msg_label()
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (None, None)
+                height: 100
+                width: 800
+                Button:
+                    text: "Search Record First"
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 40
+                    width: 200
+                    pos_hint: {'center_x': 0.5}
+                    on_press: root.call_search_method()   
+                Button:
+                    text: "Go Back"
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 40
+                    width: 200
+                    pos_hint: {'center_x': 0.5}
+                    on_press: root.back_to_Admin_panel() 
+
+            #for validation
+            Label:
+                id: show_message_in_tab1
+                text: ''        
+
+###--------------------------------------------TAB-2-----------------------------------------    
+    
+    TabbedPanelItem:
+        id: record_tab
+        text: 'See Record'
+        opacity: 0
+        GridLayout:
+            cols:1  
+            size_hint: (None, None)
+            height: 600
+            width:800
+
+            Label:
+                text:"Dental Biometric System"
+                font_size: 20
+                bold: True
+                text_size: self.size
+                halign:"center"
+                valign:"middle"
+                size_hint: (None, None)
+                height: 100
+                width:800
+                padding: 10
+                #spacing:50
+
+            GridLayout:
+                cols:2
+                size_hint: None,None
+                height:210
+                width:800
+
+                Label:
+                    text:'Name:'
+                    bold: True
+                    text_size: self.size
+                    halign:"right"
+                    valign:"middle"
+                    size_hint:(None, None)
+                    height: 30
+                    width:400
+                    padding: 20
+
+
+                Label:
+                    id: name
+                    text:''
+                    text_size: self.size
+                    halign:"left"
+                    valign:"middle"
+                    size_hint:(None, None)
+                    height: 30
+                    width:400
+                    padding: 20
+
+
+                Label:
+                    text:'Age:'
+                    bold: True
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+                Label:
+                    id: age
+                    text:''
+                    text_size: self.size
+                    halign: "left"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+
+                Label:
+                    text:'Gender:'
+                    bold: True
+                    font_size: 20
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+                Label:
+                    id: gender
+                    text:''
+                    font_size: 17
+                    text_size: self.size
+                    halign: "left"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+
+
+                Label:
+                    text: 'State:'
+                    bold: True
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+                Label:
+                    id: state
+                    text: ''
+                    text_size: self.size
+                    halign: "left"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+                Label:
+                    text: 'Radiograph:'
+                    bold: True
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+                Label:
+                    id: radiograph
+                    text: ''
+                    text_size: self.size
+                    halign: "left"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20    
+
+                Label:
+                    text: 'Picture'
+                    bold: True
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 120
+                    width: 400
+                    padding: 20
+
+
+                Image:
+                    id: img_address
+                    allow_stretch: False
+                    keep_ratio: True
+                    size_hint: None, None  
+                    size: 200, 120 
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (None, None)
+                height: 170
+                width: 800
+
+
+
+                Button:
+                    text: "Update Record"
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 40
+                    width: 200
+                    pos_hint: {'center_x': 0.5}
+                    on_press: root.go_to_update_tab()
+
+
+##-------------------------------- TAB-3--------------------------------------------------
+
+    TabbedPanelItem:
+        id: update_tab
+        text: 'Update Record'
+        opacity: 0
+    
+         
+        GridLayout:
+            cols:1  
+            size_hint: (None, None)
+            height: 600
+            width:800
+    
+            Label:
+                text:"Dental Biometric System"
+                font_size: 30
+                bold: True
+                text_size: self.size
+                halign:"center"
+                valign:"top"
+                size_hint: (None, None)
+                height: 50
+                width:800
+                padding: 10
+
+            Label:
+                text:"NOTE: If any fields are empty, previous data remains in the database."
+                font_size: 16
+                bold: True
+                text_size: self.size
+                halign:"center"
+                valign:"top"
+                size_hint: (None, None)
+                height: 35
+                width:800
+                padding: 15    
+    
+            
+            GridLayout:
+                cols:2
+                size_hint: None,None
+                height:255
+                width:800
+    
+                Label:
+                    text:'Name'
+                    text_size: self.size
+                    halign:"right"
+                    valign:"middle"
+                    size_hint:(None, None)
+                    height: 30
+                    width:400
+                    padding: 20
+                    
+    
+                TextInput:
+                    id:updated_name
+                    multiline:False
+                    size_hint:(None, None)
+                    height: 30
+                    width: 200
+                    on_text: root.remove_message()
+                    
+    
+                Label:
+                    text:'Age'
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+                    
+                TextInput:
+                    id:updated_age
+                    multiline: False
+                    size_hint: (None, None)
+                    height: 30
+                    width: 200
+                    on_text: root.remove_message()
+                   
+                
+                Label:
+                    text:'Gender:'
+                    font_size: 20
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+    
+                Label:
+                    text:''
+    
+                Label:
+                    text: 'Male'
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+                CheckBox:
+                    group:'gender'
+                    size_hint: (None, None)
+                    height: 30
+                    width: 200
+                    on_active:root.checkbox_click(self, self.active, 'Male')
+
+                Label:
+                    text: 'Female'
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+
+                CheckBox:
+                    group:'gender'
+                    size_hint: (None, None)
+                    height: 30
+                    width: 200
+                    on_active:root.checkbox_click(self, self.active, 'Female') 
+    
+                Label:
+                    text: 'State'
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+                
+                Spinner:
+                    id: spinner_id
+                    text: 'select State'
+                    size_hint: (None, None)
+                    height: 30
+                    width: 200
+                    values: ["Islamabad", "Punjab","Sindh", "Balochistan","KPK","Gilgit"]    
+                    on_text:root.spinner_click(spinner_id.text)
+                
+                Label:
+                    text: 'Upload Picture'
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+                
+                
+                Button: 
+                    id: picture_button
+                    text: 'Select Picture'
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 30
+                    width: 200
+                    on_release: root.show_picture_popup()
+                
+                Label:
+                    text: 'Upload Radiograph'
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    size_hint: (None, None)
+                    height: 30
+                    width: 400
+                    padding: 20
+                
+                
+                Button: 
+                    id: radiograph_button
+                    text: 'Select Radiograph'
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 30
+                    width: 200
+                    on_release: root.show_radiograph_popup()
+    
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (None, None)
+                height: 170
+                width: 800
+    
+                Button:
+                    text: "Submit Details"                
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 40
+                    width: 200
+                    pos_hint: {'center_x': 0.5}
+                    on_press: root.btn_event_handler()     
+                
+                Button:
+                    text: "Go Back"
+                    background_color: (220/255, 220/255, 220/255,1)
+                    size_hint: (None, None)
+                    height: 40
+                    width: 200
+                    pos_hint: {'center_x': 0.5}
+                    on_press: root.back_to_Admin_panel()
+    
+                Label:
+                    id: show_message_in_tab3
+                    text:''  
+                    bold: True
+                    size_hint: (None, None)
+                    height: 30
+                    width: 800
+        
+    

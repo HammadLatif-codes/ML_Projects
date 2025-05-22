@@ -1,0 +1,91 @@
+In the terminal, you can use the mysql command-line tool to interact with your MariaDB databases. Here are the basic steps to see your databases and then switch to and interact with a specific database:
+
+    See Your Databases:
+
+    bash
+
+mysql -u your_username -p
+
+Replace your_username with your actual MariaDB username. You'll be prompted to enter your password. After entering the password, you'll enter the MariaDB command-line interface.
+
+List Databases:
+
+sql
+
+SHOW DATABASES;
+
+This will display a list of databases. Look for your desired database, such as forensic_dental_biometrics.
+
+Switch to a Database:
+
+sql
+
+USE forensic_dental_biometrics;
+
+This command selects the specified database, and any subsequent SQL commands you enter will be executed in the context of this database.
+
+Perform Operations in the Database:
+Once you've switched to the desired database, you can perform various operations, such as viewing tables, executing queries, or recording data.
+
+For example, to see the tables in the current database:
+
+sql
+
+SHOW TABLES;
+
+To record data into a table:
+
+sql
+
+    INSERT INTO your_table_name (column1, column2, ...) VALUES (value1, value2, ...);
+
+    Replace your_table_name, column1, column2, etc., and value1, value2, etc., with the actual table name, column names, and values you want to insert.
+
+Remember to replace placeholders with your actual database, table, and user information. If you're unsure about the details, you can use the SHOW DATABASES; and SHOW TABLES; commands to explore the available databases and tables.
+User
+how to see data within table
+ChatGPT
+
+To see the data within a table in MariaDB using the command line, you can use the SELECT statement. Here's the basic syntax:
+
+sql
+
+SELECT * FROM your_table_name;
+
+Replace your_table_name with the actual name of the table you want to query. If you want to see specific columns, you can replace * with the column names separated by commas.
+
+Here's an example:
+
+sql
+
+SELECT column1, column2 FROM your_table_name;
+
+To see all data in all columns of a table, use the asterisk *:
+
+sql
+
+SELECT * FROM your_table_name;
+
+Here's a step-by-step guide:
+
+    Open a terminal window.
+
+    Access the MariaDB command-line interface:
+
+    bash
+
+mysql -u your_username -p
+
+After entering your password, switch to the database containing the table:
+
+sql
+
+USE your_database_name;
+
+View the data in the table:
+
+sql
+
+    SELECT * FROM your_table_name;
+
+
